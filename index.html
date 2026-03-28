@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crio Sites Profissionais que Geram Clientes | Desenvolvedor Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #f97316;
+            --accent-light: #fed7aa;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --light-bg: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* ===== HEADER / NAVEGAÇÃO ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .cta-header {
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-left: 2rem;
+        }
+
+        .cta-header:hover {
+            background: #ea6317;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: slideInDown 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+            animation: slideInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #ea6317;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* ===== PROBLEMA + SOLUÇÃO ===== */
+        .problem-solution {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .ps-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .ps-card {
+            padding: 2.5rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .ps-problem {
+            background: #fee2e2;
+            border-left: 5px solid #dc2626;
+        }
+
+        .ps-problem h3 {
+            color: #991b1b;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .ps-problem p {
+            color: #7f1d1d;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .ps-problem ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .ps-problem li {
+            color: #7f1d1d;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .ps-problem li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .ps-solution {
+            background: #dcfce7;
+            border-left: 5px solid #16a34a;
+        }
+
+        .ps-solution h3 {
+            color: #15803d;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .ps-solution p {
+            color: #166534;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .ps-solution ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .ps-solution li {
+            color: #166534;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .ps-solution li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        /* ===== SERVIÇOS ===== */
+        .services {
+            padding: 5rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(249, 115, 22, 0.15);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* ===== DIFERENCIAIS ===== */
+        .differentials {
+            padding: 5rem 2rem;
+        }
+
+        .differentials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .differential-card {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(249, 115, 22, 0.02) 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--accent-light);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .differential-card:hover {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%);
+            transform: translateY(-5px);
+        }
+
+        .differential-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .differential-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .differential-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ===== PORTFÓLIO ===== */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .portfolio-category {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* ===== DEPOIMENTOS ===== */
+        .testimonials {
+            padding: 5rem 2rem;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-business {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* ===== ORÇAMENTO ===== */
+        .pricing {
+            padding: 5rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .pricing-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pricing-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            border: 2px solid var(--accent);
+        }
+
+        .pricing-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .pricing-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .guarantee {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        .guarantee i {
+            color: #f59e0b;
+            margin-right: 0.5rem;
+        }
+
+        /* ===== CTA FINAL ===== */
+        .final-cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: #cbd5e1;
+        }
+
+        .final-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ead51;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-section p {
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--secondary);
+            padding-top: 2rem;
+            color: #94a3b8;
+        }
+
+        /* ===== BOTÃO FLUTUANTE WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--white);
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background: #1ead51;
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 5px 30px rgba(37, 211, 102, 0.6);
+            }
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cta-header {
+                margin-left: 0;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem;
+                margin-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .ps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .final-buttons {
+                flex-direction: column;
+            }
+
+            .btn-whatsapp {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .whatsapp-float {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .ps-card {
+                padding: 1.5rem;
+            }
+
+            .pricing-content {
+                padding: 1.5rem;
+            }
+
+            .final-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER / NAVEGAÇÃO -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                Wilker Marques
+            </a>
+            <nav>
+                <a href="#services">Serviços</a>
+                <a href="#portfolio">Portfólio</a>
+                <a href="#testimonials">Depoimentos</a>
+                <a href="#contact">Contato</a>
+            </nav>
+            <a href="#contact" class="cta-header">Solicitar Orçamento</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="urgency-badge">
+                <i class="fas fa-fire"></i> Vagas limitadas para novos projetos este mês
+            </div>
+            <h1>Crio sites profissionais que geram clientes para o seu negócio</h1>
+            <p>Tenha um site moderno, rápido e pronto para vender 24h por dia</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-arrow-down"></i> Solicitar Orçamento
+                </a>
+                <a href="https://wa.me/5562984120974" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> Conversar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMA + SOLUÇÃO -->
+    <section class="problem-solution">
+        <h2 class="section-title">Seu Negócio Merece Mais</h2>
+        <div class="ps-container">
+            <div class="ps-card ps-problem reveal">
+                <h3><i class="fas fa-exclamation-circle"></i> O Problema</h3>
+                <p>Muitos negócios ainda não têm presença online ou possuem sites desatualizados que não convertem
+                    visitantes em clientes.</p>
+                <ul>
+                    <li>Seu negócio não aparece no Google</li>
+                    <li>Você perde clientes por não ter presença online</li>
+                    <li>Site lento ou desatualizado afasta clientes</li>
+                    <li>Sem integração com redes sociais e WhatsApp</li>
+                </ul>
+            </div>
+            <div class="ps-card ps-solution reveal">
+                <h3><i class="fas fa-check-circle"></i> A Solução</h3>
+                <p>Eu crio sites rápidos, modernos e otimizados para atrair clientes todos os dias, 24 horas por dia.
+                </p>
+                <ul>
+                    <li>Site otimizado para aparecer no Google (SEO)</li>
+                    <li>Design moderno que converte visitantes em clientes</li>
+                    <li>Carregamento rápido e responsivo em todos os dispositivos</li>
+                    <li>Integração com WhatsApp, redes sociais e sistemas de pagamento</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Serviços que Transformam Negócios</h2>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Criação de Sites Profissionais</h3>
+                    <p>Sites modernos, rápidos e otimizados para converter visitantes em clientes. Totalmente
+                        responsivos e seguros.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Landing Pages</h3>
+                    <p>Páginas de alta conversão focadas em um único objetivo: transformar visitantes em leads ou
+                        clientes.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Lojas Virtuais (E-commerce)</h3>
+                    <p>Plataformas de vendas online completas com carrinho, pagamento integrado e gestão de produtos.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Otimização SEO</h3>
+                    <p>Seu site aparecendo no topo do Google. Estratégias comprovadas para aumentar tráfego orgânico.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Manutenção e Suporte</h3>
+                    <p>Suporte contínuo, atualizações de segurança e melhorias. Seu site sempre funcionando
+                        perfeitamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="differentials">
+        <div class="differentials-container">
+            <h2 class="section-title">Por Que Escolher Meus Serviços?</h2>
+            <div class="differentials-grid">
+                <div class="differential-card reveal">
+                    <div class="differential-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Design Moderno e Responsivo</h3>
+                    <p>Interfaces bonitas que funcionam perfeitamente em desktop, tablet e celular.</p>
+                </div>
+                <div class="differential-card reveal">
+                    <div class="differential-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Sites Rápidos</h3>
+                    <p>Carregamento otimizado para melhor experiência do usuário e ranking no Google.</p>
+                </div>
+                <div class="differential-card reveal">
+                    <div class="differential-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Otimizado para Google (SEO)</h3>
+                    <p>Seu site aparecendo nos primeiros resultados de busca para suas palavras-chave.</p>
+                </div>
+                <div class="differential-card reveal">
+                    <div class="differential-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte Após Entrega</h3>
+                    <p>Acompanhamento contínuo e suporte técnico para garantir seu sucesso.</p>
+                </div>
+                <div class="differential-card reveal">
+                    <div class="differential-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Projetos entregues no prazo combinado, sem comprometer a qualidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-container">
+            <h2 class="section-title">Projetos que Geraram Resultados</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal">
+                    <img src="https://images.unsplash.com/photo-1441986300352-7e3dee05ae6f?w=500&h=300&fit=crop"
+                        alt="Loja Bella Moda" class="portfolio-image">
+                    <div class="portfolio-content">
+                        <h3>Loja Bella Moda</h3>
+                        <div class="portfolio-category">E-commerce de Roupas</div>
+                        <p>Plataforma de vendas online com catálogo de 500+ produtos, integração de pagamento e aumento
+                            de 300% nas vendas no primeiro mês.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop"
+                        alt="Advogado Dr. Rodrigo Alves" class="portfolio-image">
+                    <div class="portfolio-content">
+                        <h3>Advogado Dr. Rodrigo Alves</h3>
+                        <div class="portfolio-category">Site Institucional</div>
+                        <p>Site profissional para escritório de advocacia com formulário de contato, blog de artigos
+                            jurídicos e geração de 50+ leads por mês.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal">
+                    <img src="https://images.unsplash.com/photo-1576091160550-112173f7f869?w=500&h=300&fit=crop"
+                        alt="Clínica Bem-Estar" class="portfolio-image">
+                    <div class="portfolio-content">
+                        <h3>Clínica Bem-Estar</h3>
+                        <div class="portfolio-category">Landing Page</div>
+                        <p>Landing page de alta conversão para clínica de estética com agendamento online integrado e
+                            aumento de 250% em consultas marcadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">O Que Meus Clientes Dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Meu site ficou incrível e comecei a receber clientes na primeira
+                        semana! A entrega foi rápida e o suporte é excelente. Recomendo muito!"</p>
+                    <div class="testimonial-author">Ana Souza</div>
+                    <div class="testimonial-business">Loja Bella Moda</div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Profissional muito competente! Entendeu perfeitamente o que eu
+                        precisava. O site está funcionando perfeitamente e já estou recebendo mais clientes."</p>
+                    <div class="testimonial-author">Dr. Rodrigo Alves</div>
+                    <div class="testimonial-business">Escritório de Advocacia</div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Não esperava um resultado tão bom! O site é lindo, rápido e as pessoas
+                        estão marcando consultas direto pelo site. Muito satisfeita!"</p>
+                    <div class="testimonial-author">Dra. Mariana Costa</div>
+                    <div class="testimonial-business">Clínica Bem-Estar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORÇAMENTO -->
+    <section class="pricing">
+        <div class="pricing-container">
+            <h2 class="section-title">Pronto para Transformar Seu Negócio?</h2>
+            <div class="pricing-content">
+                <h2>Solicite um Orçamento Personalizado</h2>
+                <p>Cada negócio é único. Por isso, faço um orçamento personalizado baseado nas suas necessidades
+                    específicas. Sem surpresas, sem custos ocultos.</p>
+                <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">
+                    <i class="fas fa-envelope"></i> Solicitar Orçamento
+                </a>
+                <div class="guarantee">
+                    <i class="fas fa-shield-alt"></i> Garantia de Satisfação ou Seu Dinheiro de Volta
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final-cta" id="contact">
+        <div class="final-cta-container">
+            <h2>Pronto para ter um site profissional e atrair mais clientes?</h2>
+            <p>Não deixe seu negócio para trás. Comece hoje mesmo a transformar sua presença online.</p>
+            <div class="final-buttons">
+                <a href="https://wa.me/5562984120974" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Conversar no WhatsApp
+                </a>
+                <a href="mailto:contato@seudominio.com" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Enviar Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-code"></i> Wilker.marques.dev</h3>
+                    <p>Criando sites profissionais que geram clientes para seu negócio.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-phone"></i> +55 (62) 98412-0974</p>
+                    <p><i class="fas fa-envelope"></i> wilker.marques.dev@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="footer-links">
+                        <a href="https://wa.me/5562984120974" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://instagram.com/seuperfil" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/seuperfil" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Wiler.marques.Dev Pro. Todos os direitos reservados. | Desenvolvido com <i
+                        class="fas fa-heart" style="color: var(--accent);"></i> para seu sucesso.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/5562984120974" target="_blank" class="whatsapp-float" title="Conversar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+
+        function reveal() {
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                } else {
+                    element.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Executar na carga da página
+
+        // Smooth Scroll para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Efeito de fade-in ao carregar a página
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
+
+</body>
+
+</html>
+-
